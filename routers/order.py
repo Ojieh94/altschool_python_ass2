@@ -16,7 +16,7 @@ def list_orders():
 
 @order_router.post('/', status_code=201)
 def create_order(payload: OrderCreate = Depends(order_service.check_availability)):
-    
+    # check if customer exists
     lis_customer = [customer.id for customer in customers]
 
     customer_id = payload.customer_id
